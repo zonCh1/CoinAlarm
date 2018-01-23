@@ -1,5 +1,6 @@
 package ua.kh.zonell.cointest.page;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     private StringBuilder paramsGetPriceCoin;
 
+    private SwipeRefreshLayout refreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
         priceNameKey = new ArrayList<>();
         count = Const.DEFAULT;
         paramsGetPriceCoin = new StringBuilder();
+        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeListCoin);
 
         loadListCoin();
+        setRefreshListener();
     }
 
     private void loadCoinPrice(final boolean action){
@@ -125,5 +130,16 @@ public class MainActivity extends AppCompatActivity {
             coinListAdapter = new CoinListAdapter(coinList, getApplicationContext());
         }
         return coinListAdapter;
+    }
+
+    private void setRefreshListener(){
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadCoinPrice(Const.UPDATE);
+                pbCoin.setVisibility(ProgressBar.VISIBLE);
+                refreshLayout.setRefreshing(false);
+            }
+        });
     }
 }

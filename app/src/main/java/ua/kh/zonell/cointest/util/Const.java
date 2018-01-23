@@ -15,7 +15,8 @@ public class Const {
     public static String USD = " USD";
     public static String EUR = " EUR";
 
-
+    public static boolean SELECT = true;
+    public static boolean UPDATE = false;
 
     public static int TEST_LIMIT = 50;
     public static int DEFAULT = 0;

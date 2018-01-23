@@ -3,7 +3,7 @@
     package="ua.kh.zonell.cointest">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -20,15 +20,17 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="AA_DB_NAME" android:value="Coin.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="0" />
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="Coin.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="0" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="
-        ua.kh.zonell.cointest.model.Coin,
-        ua.kh.zonell.cointest.model.PriceCoin" />
+            android:value="         ua.kh.zonell.cointest.model.Coin,         ua.kh.zonell.cointest.model.PriceCoin" />
+
+        <activity android:name=".page.InfoCoin"></activity>
     </application>
-
-
 
 </manifest>

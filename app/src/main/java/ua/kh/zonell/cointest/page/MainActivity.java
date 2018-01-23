@@ -1,5 +1,6 @@
 package ua.kh.zonell.cointest.page;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -56,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
         loadListCoin();
     }
 
+
+
     private void loadCoinPrice(){
         coinList = Queries.selectCoin();
         for (int i = 0; i < coinList.size(); i++) {
-            paramsGetPriceCoin.append(coinList.get(i).getName() + ",");
+            paramsGetPriceCoin.append(coinList.get(i).getName() + Const.SEPARATOR);
         }
 
         App.getApi(Const.URL_MIN_API).getCoinInfo(paramsGetPriceCoin.toString()).enqueue(new Callback<PriceResult>() {

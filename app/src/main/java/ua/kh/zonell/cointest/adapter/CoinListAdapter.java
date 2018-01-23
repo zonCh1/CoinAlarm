@@ -2,6 +2,8 @@ package ua.kh.zonell.cointest.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import ua.kh.zonell.cointest.R;
 import ua.kh.zonell.cointest.db.Queries;
 import ua.kh.zonell.cointest.model.Coin;
+import ua.kh.zonell.cointest.page.InfoCoin;
 import ua.kh.zonell.cointest.util.Const;
 
 public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinListViewHolder>{
@@ -31,7 +34,7 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
     }
 
     @Override
-    public void onBindViewHolder(CoinListViewHolder holder, int position) {
+    public void onBindViewHolder(final CoinListViewHolder holder, int position) {
         holder.tvName.setText(coinList.get(position).getName());
         try {
             Picasso
@@ -44,17 +47,27 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
             holder.tvBTC.setText(Queries
                     .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_BTC()
-                    .toString() + " BTC");
+                    .toString() + Const.BTC);
             holder.tvUSD.setText(Queries
                     .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_USD()
-                    .toString() + " USD");
+                    .toString() + Const.USD);
             holder.tvEUR.setText(Queries
                     .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_EUR()
-                    .toString() + " EUR");
+                    .toString() + Const.EUR);
         } catch (Exception e){
         }
+        final int fPosition = position;
+        holder.cvInfoCoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, InfoCoin.class);
+                intent.putExtra(Const.NAME, coinList.get(fPosition).getName());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -71,6 +84,8 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
         private TextView tvUSD;
         private TextView tvEUR;
 
+        private CardView cvInfoCoin;
+
         public CoinListViewHolder(View itemView) {
             super(itemView);
 
@@ -80,6 +95,8 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
             tvBTC = itemView.findViewById(R.id.BTC);
             tvUSD = itemView.findViewById(R.id.USD);
             tvEUR = itemView.findViewById(R.id.EUR);
+
+            cvInfoCoin = itemView.findViewById(R.id.cvInfoCoin);
         }
     }
 }

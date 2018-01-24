@@ -47,7 +47,7 @@ public class Queries {
                                        boolean action){
         if (action){
             new PriceCoin(name,
-                    priceBTC.getPRICE().toString(), priceBTC.getOPENDAY(), priceBTC.getLOWDAY(), priceBTC.getHIGHDAY(),
+                    priceBTC.getPRICE(), priceBTC.getOPENDAY(), priceBTC.getLOWDAY(), priceBTC.getHIGHDAY(),
                     priceUSD.getPRICE(), priceUSD.getOPENDAY(), priceUSD.getLOWDAY(), priceUSD.getHIGHDAY(),
                     priceEUR.getPRICE(), priceEUR.getOPENDAY(), priceEUR.getLOWDAY(), priceEUR.getHIGHDAY()
             ).save();

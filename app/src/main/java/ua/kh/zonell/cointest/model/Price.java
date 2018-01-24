@@ -6,53 +6,53 @@ import com.google.gson.annotations.Expose;
 public class Price extends Model{
 
     @Expose
-    private Double PRICE;
+    private String PRICE;
 
     @Expose
-    private Double OPENDAY;
+    private String OPENDAY;
 
     @Expose
-    private Double HIGHDAY;
+    private String HIGHDAY;
 
     @Expose
-    private Double LOWDAY;
+    private String LOWDAY;
 
-    public Price(Double PRICE, Double OPENDAY, Double HIGHDAY, Double LOWDAY) {
+    public Price(String PRICE, String OPENDAY, String HIGHDAY, String LOWDAY) {
         this.PRICE = PRICE;
         this.OPENDAY = OPENDAY;
         this.HIGHDAY = HIGHDAY;
         this.LOWDAY = LOWDAY;
     }
 
-    public Double getPRICE() {
+    public String getPRICE() {
         return PRICE;
     }
 
-    public void setPRICE(Double PRICE) {
+    public void setPRICE(String PRICE) {
         this.PRICE = PRICE;
     }
 
-    public Double getOPENDAY() {
+    public String getOPENDAY() {
         return OPENDAY;
     }
 
-    public void setOPENDAY(Double OPENDAY) {
+    public void setOPENDAY(String OPENDAY) {
         this.OPENDAY = OPENDAY;
     }
 
-    public Double getHIGHDAY() {
+    public String getHIGHDAY() {
         return HIGHDAY;
     }
 
-    public void setHIGHDAY(Double HIGHDAY) {
+    public void setHIGHDAY(String HIGHDAY) {
         this.HIGHDAY = HIGHDAY;
     }
 
-    public Double getLOWDAY() {
+    public String getLOWDAY() {
         return LOWDAY;
     }
 
-    public void setLOWDAY(Double LOWDAY) {
+    public void setLOWDAY(String LOWDAY) {
         this.LOWDAY = LOWDAY;
     }
 }

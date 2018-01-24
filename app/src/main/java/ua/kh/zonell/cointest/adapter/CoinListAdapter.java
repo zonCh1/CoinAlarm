@@ -3,19 +3,22 @@ package ua.kh.zonell.cointest.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
-import de.hdodenhof.circleimageview.CircleImageView;
 import ua.kh.zonell.cointest.R;
 import ua.kh.zonell.cointest.db.Queries;
 import ua.kh.zonell.cointest.model.Coin;
 import ua.kh.zonell.cointest.page.InfoCoin;
+import ua.kh.zonell.cointest.util.CircleTransformation;
 import ua.kh.zonell.cointest.util.Const;
 
 public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinListViewHolder>{
@@ -42,8 +45,12 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
                     .load(Const.BASE_URL_IMG +
                             Queries.getImgCoin(holder.tvName.getText().toString()).get(Const.DEFAULT).getImageUrl() +
                             Const.IMG_SIZE)
+                    .transform(new CircleTransformation(Color.GREEN, 1))
                     .into(holder.imgCoin);
+        } catch (Exception e){
+        }
 
+        try {
             holder.tvBTC.setText(Queries
                     .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_BTC()
@@ -58,6 +65,7 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
                     .toString() + Const.EUR);
         } catch (Exception e){
         }
+
         final int fPosition = position;
         holder.cvInfoCoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +86,7 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
     public class CoinListViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvName;
-        private CircleImageView imgCoin;
+        private ImageView imgCoin;
 
         private TextView tvBTC;
         private TextView tvUSD;

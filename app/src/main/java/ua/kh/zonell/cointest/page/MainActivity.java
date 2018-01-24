@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCoinPrice(final boolean action){
-        coinList = Queries.selectCoin();
+        coinList = Queries.selectCoin(Const.TEST_LIMIT);
         for (int i = 0; i < coinList.size(); i++) {
             paramsGetPriceCoin.append(coinList.get(i).getName() + Const.SEPARATOR);
         }

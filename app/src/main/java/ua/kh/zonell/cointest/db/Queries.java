@@ -25,7 +25,13 @@ public class Queries {
     public static List<Coin> selectCoin(){
         return new Select()
                 .from(Coin.class)
-                .limit(Const.TEST_LIMIT)
+                .execute();
+    }
+
+    public static List<Coin> selectCoin(int limit){
+        return new Select()
+                .from(Coin.class)
+                .limit(limit)
                 .execute();
     }
 
@@ -47,10 +53,9 @@ public class Queries {
             ).save();
         } else {
             new Update(PriceCoin.class)
-                    .set(
-                            "PRICE_BTC ='" + priceBTC.getPRICE() + "', OPENDAY_BTC = '" + priceBTC.getOPENDAY() + "', HIGHDAY_BTC = '" + priceBTC.getLOWDAY() + "', LOWDAY_BTC = '" + priceBTC.getHIGHDAY() + "', " +
-                                    "PRICE_USD ='" + priceUSD.getPRICE() + "', OPENDAY_USD = '" + priceUSD.getOPENDAY() + "', HIGHDAY_USD = '" + priceUSD.getLOWDAY() + "', LOWDAY_USD = '" + priceUSD.getHIGHDAY() + "', " +
-                                    "PRICE_EUR ='" + priceEUR.getPRICE() + "', OPENDAY_EUR = '" + priceEUR.getOPENDAY() + "', HIGHDAY_EUR = '" + priceEUR.getLOWDAY() + "', LOWDAY_EUR = '" + priceEUR.getHIGHDAY() + "'"
+                    .set("PRICE_BTC ='" + priceBTC.getPRICE() + "', OPENDAY_BTC = '" + priceBTC.getOPENDAY() + "', HIGHDAY_BTC = '" + priceBTC.getLOWDAY() + "', LOWDAY_BTC = '" + priceBTC.getHIGHDAY() + "', " +
+                         "PRICE_USD ='" + priceUSD.getPRICE() + "', OPENDAY_USD = '" + priceUSD.getOPENDAY() + "', HIGHDAY_USD = '" + priceUSD.getLOWDAY() + "', LOWDAY_USD = '" + priceUSD.getHIGHDAY() + "', " +
+                         "PRICE_EUR ='" + priceEUR.getPRICE() + "', OPENDAY_EUR = '" + priceEUR.getOPENDAY() + "', HIGHDAY_EUR = '" + priceEUR.getLOWDAY() + "', LOWDAY_EUR = '" + priceEUR.getHIGHDAY() + "'"
                     )
                     .where("Name = '" + name + "'")
                     .execute();

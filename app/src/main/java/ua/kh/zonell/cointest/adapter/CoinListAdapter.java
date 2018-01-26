@@ -68,6 +68,9 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
                     .getPRICE_EUR()
                     .toString() + Const.EUR);
         } catch (Exception e) {
+            holder.tvBTC.setText("");
+            holder.tvUSD.setText("");
+            holder.tvEUR.setText("");
         }
 
         final int fPosition = position;

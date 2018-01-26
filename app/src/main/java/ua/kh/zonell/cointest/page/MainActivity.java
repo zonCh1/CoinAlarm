@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeListCoin;
     @BindView(R.id.pbCoin)
     ProgressBar pbCoin;
-
     private Map<String, Coin> coinMap;
     private Map<String, PriseFull> priseFullMap;
     private List<Coin> coinList;

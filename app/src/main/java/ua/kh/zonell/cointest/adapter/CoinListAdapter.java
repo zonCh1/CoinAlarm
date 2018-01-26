@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import ua.kh.zonell.cointest.R;
 import ua.kh.zonell.cointest.db.Queries;
 import ua.kh.zonell.cointest.model.Coin;
@@ -48,7 +49,7 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
                     .load(Const.BASE_URL_IMG +
                             Queries.getImgCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT).getImageUrl() +
                             Const.IMG_SIZE)
-                    .transform(new CircleTransformation(Color.GREEN, 1))
+                    .transform(new CircleTransformation(Color.BLUE, 1))
                     .into(holder.imgCoin);
         } catch (Exception e) {
         }
@@ -103,6 +104,7 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
 
         public CoinListViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

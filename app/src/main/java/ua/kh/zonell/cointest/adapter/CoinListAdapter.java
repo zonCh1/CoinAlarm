@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import butterknife.BindView;
 import ua.kh.zonell.cointest.R;
 import ua.kh.zonell.cointest.db.Queries;
 import ua.kh.zonell.cointest.model.Coin;
@@ -21,7 +24,7 @@ import ua.kh.zonell.cointest.page.InfoCoin;
 import ua.kh.zonell.cointest.util.CircleTransformation;
 import ua.kh.zonell.cointest.util.Const;
 
-public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinListViewHolder>{
+public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinListViewHolder> {
 
     private List<Coin> coinList;
     private Context context;
@@ -38,32 +41,32 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
 
     @Override
     public void onBindViewHolder(final CoinListViewHolder holder, int position) {
-        holder.tvName.setText(coinList.get(position).getName());
+        holder.nameCoin.setText(coinList.get(position).getName());
         try {
             Picasso
                     .with(context)
                     .load(Const.BASE_URL_IMG +
-                            Queries.getImgCoin(holder.tvName.getText().toString()).get(Const.DEFAULT).getImageUrl() +
+                            Queries.getImgCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT).getImageUrl() +
                             Const.IMG_SIZE)
                     .transform(new CircleTransformation(Color.GREEN, 1))
                     .into(holder.imgCoin);
-        } catch (Exception e){
+        } catch (Exception e) {
         }
 
         try {
             holder.tvBTC.setText(Queries
-                    .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_BTC()
                     .toString() + Const.BTC);
             holder.tvUSD.setText(Queries
-                    .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_USD()
                     .toString() + Const.USD);
             holder.tvEUR.setText(Queries
-                    .selectPriceCoin(holder.tvName.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
                     .getPRICE_EUR()
                     .toString() + Const.EUR);
-        } catch (Exception e){
+        } catch (Exception e) {
         }
 
         final int fPosition = position;
@@ -83,28 +86,23 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
         return coinList.size();
     }
 
-    public class CoinListViewHolder extends RecyclerView.ViewHolder{
+    public class CoinListViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvName;
-        private ImageView imgCoin;
-
-        private TextView tvBTC;
-        private TextView tvUSD;
-        private TextView tvEUR;
-
-        private CardView cvInfoCoin;
+        @BindView(R.id.imgCoin)
+        ImageView imgCoin;
+        @BindView(R.id.nameCoin)
+        TextView nameCoin;
+        @BindView(R.id.tvBTC)
+        TextView tvBTC;
+        @BindView(R.id.tvUSD)
+        TextView tvUSD;
+        @BindView(R.id.tvEUR)
+        TextView tvEUR;
+        @BindView(R.id.cvInfoCoin)
+        CardView cvInfoCoin;
 
         public CoinListViewHolder(View itemView) {
             super(itemView);
-
-            tvName = itemView.findViewById(R.id.nameCoin);
-            imgCoin = itemView.findViewById(R.id.imgCoin);
-
-            tvBTC = itemView.findViewById(R.id.BTC);
-            tvUSD = itemView.findViewById(R.id.USD);
-            tvEUR = itemView.findViewById(R.id.EUR);
-
-            cvInfoCoin = itemView.findViewById(R.id.cvInfoCoin);
         }
     }
 }

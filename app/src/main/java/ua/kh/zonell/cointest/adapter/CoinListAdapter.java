@@ -56,15 +56,15 @@ public class CoinListAdapter extends RecyclerView.Adapter<CoinListAdapter.CoinLi
 
         try {
             holder.tvBTC.setText(Queries
-                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString())
                     .getPRICE_BTC()
                     .toString() + Const.BTC);
             holder.tvUSD.setText(Queries
-                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString())
                     .getPRICE_USD()
                     .toString() + Const.USD);
             holder.tvEUR.setText(Queries
-                    .selectPriceCoin(holder.nameCoin.getText().toString()).get(Const.DEFAULT)
+                    .selectPriceCoin(holder.nameCoin.getText().toString())
                     .getPRICE_EUR()
                     .toString() + Const.EUR);
         } catch (Exception e) {

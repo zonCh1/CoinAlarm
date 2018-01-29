@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_btc_price"
+        android:text="tv_btc_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_btc_open_day"
+        android:text="tv_btc_open_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_btc_price"/>
+
+    <TextView
+        android:id="@+id/tv_btc_high_day"
+        android:text="tv_btc_high_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_btc_open_day"/>
+
+    <TextView
+        android:id="@+id/tv_btc_low_day"
+        android:text="tv_btc_low_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_btc_high_day"/>
+
+
+</RelativeLayout>

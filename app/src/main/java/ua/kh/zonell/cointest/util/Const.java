@@ -2,8 +2,11 @@ package ua.kh.zonell.cointest.util;
 
 public class Const {
 
+    public static String listCalculator = "BTC ETH ETC XMR ZEC PASC LTC";
+
     public static String BASE_URL = "https://www.cryptocompare.com/api/data/";
     public static String URL_MIN_API = "https://min-api.cryptocompare.com/data/";
+    public static String URL_CALC = "https://www.cryptocompare.com/mining/calculator/";
 
     public static String BASE_URL_IMG = "https://www.cryptocompare.com";
     public static String IMG_SIZE = "?width=80";

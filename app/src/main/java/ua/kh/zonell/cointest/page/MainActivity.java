@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCoinPrice(final boolean action) {
-        coinList = Queries.selectCoin(Const.TEST_LIMIT);
+        coinList = Queries.selectLimitCoin(Const.TEST_LIMIT);
         for (int i = 0; i < coinList.size(); i++) {
             paramsGetPriceCoin.append(coinList.get(i).getName() + Const.SEPARATOR);
         }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 count = Const.DEFAULT;
                 priceNameKey.clear();
 
-                displayData(Queries.selectCoin());
+                displayData(Queries.selectLimitCoin(Const.TEST_LIMIT));
             }
 
             @Override
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadListCoin() {
-        if (Queries.selectCoin().isEmpty()) {
+        if (Queries.selectAllCoin().isEmpty()) {
             App.getApi(Const.BASE_URL).getListCoin().enqueue(new Callback<CoinResult>() {
                 @Override
                 public void onResponse(Call<CoinResult> call, Response<CoinResult> response) {

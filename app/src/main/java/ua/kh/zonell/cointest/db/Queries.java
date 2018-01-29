@@ -1,5 +1,6 @@
 package ua.kh.zonell.cointest.db;
 
+import com.activeandroid.Model;
 import com.activeandroid.query.Select;
 import com.activeandroid.query.Update;
 
@@ -22,13 +23,13 @@ public class Queries {
         ).save();
     }
 
-    public static List<Coin> selectCoin(){
+    public static List<Coin> selectAllCoin(){
         return new Select()
                 .from(Coin.class)
                 .execute();
     }
 
-    public static List<Coin> selectCoin(int limit){
+    public static List<Coin> selectLimitCoin(int limit){
         return new Select()
                 .from(Coin.class)
                 .limit(limit)
@@ -62,16 +63,23 @@ public class Queries {
         }
     }
 
-    public static List<PriceCoin> selectPriceCoin(String name){
+    public static PriceCoin selectPriceCoin(String name){
         return new Select()
                 .from(PriceCoin.class)
                 .where("Name = '" + name + "'")
-                .execute();
+                .executeSingle();
     }
 
     public static List<PriceCoin> selectPrice() {
         return new Select()
                 .from(PriceCoin.class)
                 .execute();
+    }
+
+    public static Coin selectAllCoin(String name){
+        return new Select()
+                .from(Coin.class)
+                .where("Name = '" + name + "'")
+                .executeSingle();
     }
 }

@@ -11,11 +11,49 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/tv_usd_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/marg_left"
+        android:layout_toEndOf="@+id/tv_btc_open_day"
+        android:layout_toRightOf="@+id/tv_btc_open_day"
+        android:text="tv_usd_price" />
+
+    <TextView
+        android:id="@+id/tv_eur_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/marg_left"
+        android:layout_toEndOf="@+id/tv_usd_open_day"
+        android:layout_toRightOf="@+id/tv_usd_open_day"
+        android:text="tv_eur_price" />
+
+    <TextView
         android:id="@+id/tv_btc_open_day"
         android:text="tv_btc_open_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_btc_price"/>
+
+    <TextView
+        android:id="@+id/tv_usd_open_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_usd_price"
+        android:layout_alignStart="@+id/tv_usd_price"
+        android:layout_below="@+id/tv_usd_price"
+        android:text="tv_usd_open_day" />
+
+    <TextView
+        android:id="@+id/tv_eur_open_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_eur_price"
+        android:layout_alignStart="@+id/tv_eur_price"
+        android:layout_below="@+id/tv_eur_price"
+        android:text="tv_eur_open_day" />
 
     <TextView
         android:id="@+id/tv_btc_high_day"
@@ -25,11 +63,46 @@
         android:layout_below="@+id/tv_btc_open_day"/>
 
     <TextView
+        android:id="@+id/tv_usd_high_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_usd_open_day"
+        android:layout_alignStart="@+id/tv_usd_open_day"
+        android:layout_below="@+id/tv_usd_open_day"
+        android:text="tv_usd_high_day" />
+
+    <TextView
+        android:id="@+id/tv_eur_high_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_eur_open_day"
+        android:layout_alignStart="@+id/tv_eur_open_day"
+        android:layout_below="@+id/tv_eur_open_day"
+        android:text="tv_eur_high_day" />
+
+    <TextView
         android:id="@+id/tv_btc_low_day"
         android:text="tv_btc_low_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_btc_high_day"/>
 
+    <TextView
+        android:id="@+id/tv_usd_low_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_usd_high_day"
+        android:layout_alignStart="@+id/tv_usd_high_day"
+        android:layout_below="@+id/tv_usd_high_day"
+        android:text="tv_usd_low_day" />
+
+    <TextView
+        android:id="@+id/tv_eur_low_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_eur_high_day"
+        android:layout_alignStart="@+id/tv_eur_high_day"
+        android:layout_below="@+id/tv_eur_high_day"
+        android:text="tv_eur_low_day" />
 
 </RelativeLayout>

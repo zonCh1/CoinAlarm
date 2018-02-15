@@ -9,13 +9,13 @@ public class PriceResult {
 
     @SerializedName("RAW")
     @Expose
-    private Map<String, PriseFull> priceFull;
+    private Map<String, PriceFull> priceFull;
 
-    public Map<String, PriseFull> getPriceFull() {
+    public Map<String, PriceFull> getPriceFull() {
         return priceFull;
     }
 
-    public void setPriceFull(Map<String, PriseFull> priceFull) {
+    public void setPriceFull(Map<String, PriceFull> priceFull) {
         this.priceFull = priceFull;
     }
 }

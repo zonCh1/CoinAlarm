@@ -66,6 +66,4 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycleVersion"
 
     implementation "com.squareup.picasso:picasso:2.5.2"
-
-    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
 }

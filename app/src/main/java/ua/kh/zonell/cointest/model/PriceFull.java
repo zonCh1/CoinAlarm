@@ -3,7 +3,7 @@ package ua.kh.zonell.cointest.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PriseFull {
+public class PriceFull {
 
     @SerializedName("BTC")
     @Expose

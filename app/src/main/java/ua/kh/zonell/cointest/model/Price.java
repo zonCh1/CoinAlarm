@@ -1,9 +1,8 @@
 package ua.kh.zonell.cointest.model;
 
-import com.activeandroid.Model;
 import com.google.gson.annotations.Expose;
 
-public class Price extends Model{
+public class Price {
 
     @Expose
     private String PRICE;

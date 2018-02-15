@@ -1,4 +1,4 @@
-package ua.kh.zonell.cointest.page;
+package ua.kh.zonell.cointest.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,18 +15,16 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ua.kh.zonell.cointest.R;
-import ua.kh.zonell.cointest.db.Queries;
+//import ua.kh.zonell.cointest.db.Queries;
 import ua.kh.zonell.cointest.model.Coin;
 import ua.kh.zonell.cointest.util.CircleTransformation;
 import ua.kh.zonell.cointest.util.Const;
 
-public class InfoCoin extends AppCompatActivity {
+public class InfoCoinActivity extends AppCompatActivity {
 
     @BindView(R.id.imgInfoCoin)
     ImageView imgInfoCoin;
@@ -51,10 +49,10 @@ public class InfoCoin extends AppCompatActivity {
         setContentView(R.layout.activity_info_coin);
         ButterKnife.bind(this);
 
-        initUI();
+//        initUI();
     }
 
-    private void initUI() {
+    /*private void initUI() {
         Picasso
                 .with(getApplicationContext())
                 .load(Const.BASE_URL_IMG + getCoin().getImageUrl() + Const.IMG_SIZE)
@@ -64,16 +62,16 @@ public class InfoCoin extends AppCompatActivity {
         tvNameInfoCoin.setText(getCoin().getCoinName() + "(" + getCoin().getName() + ")");
 
         setVisibleCalculate();
-    }
+    }*/
 
     private void setVisibleCalculate(){
         includeMiningProfit.setVisibility(Const.listCalculator.contains(getName()) ?
                 View.VISIBLE : View.INVISIBLE);
     }
 
-    private Coin getCoin() {
+    /*private Coin getCoin() {
         return Queries.selectAllCoin(getName());
-    }
+    }*/
 
     private String getName() {
         Bundle dataBundle = getIntent().getExtras();
@@ -96,11 +94,11 @@ public class InfoCoin extends AppCompatActivity {
         intent.setData(Uri.parse(sb.toString()));
         startActivity(intent);
     }
-
+/*
     @OnClick(R.id.fabInfoCoin)
     public void fabInfoCoinClicked() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(Const.BASE_URL_IMG + getCoin().getUrl()));
         startActivity(intent);
-    }
+    }*/
 }

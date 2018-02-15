@@ -1,31 +1,22 @@
 package ua.kh.zonell.cointest.model;
 
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
 import com.google.gson.annotations.Expose;
 
-@Table(name = "Coin")
-public class Coin extends Model{
+public class Coin {
 
     @Expose
-    @Column(name = "_Id")
     private long _Id;
 
     @Expose
-    @Column(name = "Url")
     private String Url;
 
     @Expose
-    @Column(name = "ImageUrl")
     private String ImageUrl;
 
     @Expose
-    @Column(name = "Name", unique = true)
     private String Name;
 
     @Expose
-    @Column(name = "CoinName")
     private String CoinName;
 
     public Coin() {

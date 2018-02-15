@@ -6,13 +6,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".App"
+        android:name=".util.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".page.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,7 @@
             android:name="AA_MODELS"
             android:value="         ua.kh.zonell.cointest.model.Coin,         ua.kh.zonell.cointest.model.PriceCoin" />
 
-        <activity android:name=".page.InfoCoin"></activity>
+        <activity android:name=".ui.InfoCoinActivity"></activity>
     </application>
 
 </manifest>

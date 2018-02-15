@@ -1,4 +1,4 @@
-package ua.kh.zonell.cointest.interfase.rest;
+package ua.kh.zonell.cointest.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
